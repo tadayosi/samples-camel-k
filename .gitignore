@@ -1,3 +1,6 @@
 .*
 !.editorconfig
 !.gitignore
+
+# Karavan
+local.properties

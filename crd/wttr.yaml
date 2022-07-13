@@ -1,0 +1,19 @@
+apiVersion: camel.apache.org/v1
+kind: Integration
+metadata:
+  name: wttr
+spec:
+  flows:
+    - route:
+        from:
+          uri: kamelet:wttrin-source
+          steps:
+            - transform:
+                expression:
+                  jsonpath:
+                    expression: $.lang_ja[0].value
+            - log:
+                message: 'Weather: ${body}'
+          parameters:
+            wttrLocation: tokyo
+            wttrLanguage: ja

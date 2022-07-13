@@ -1,0 +1,10 @@
+- route:
+    from:
+      uri: timer:hello
+      steps:
+        - setBody:
+            expression:
+              constant:
+                expression: Hello world!
+        - to:
+            uri: log:info
